@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAHTSUL MASAIL</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Atur tinggi body agar mengisi seluruh tinggi viewport */
+        }
+
+        .konten {
+            text-align: left;
+            overflow-y: auto;
+            align-self: center; /* Menempatkan .konten di tengah vertikal */
+        }
+
+        .rtl {
+            direction: rtl;
+            text-align: justify;
+            font-size: 20PX;
+        }
+
+        .indonesia {
+            color: white;
+            text-align: justify;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="konten" id="data-container"></div>
+   <script>
+    function isArabic(text) {
+        return /[\u0600-\u06FF]/.test(text);
+    }
+
+    function scrollToBottom(element) {
+        element.scrollTop = element.scrollHeight;
+    }
+
+    function fetchDataAndDisplay(containerId, columnAndRows) {
+        const apiKey = 'AIzaSyAlT57jkJ9WR6bmEXlBXcR1-3kKzhk8FHw';
+        const spreadsheetId = '1ixedGP5FLnWpKjsyuCWs3H8ewGOHh3tDR-0mer_UpF4';
+        const sheetName = 'Sheet1';
+
+        const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!${columnAndRows}?key=${apiKey}`;
+
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                const values = data.values;
+                const container = document.getElementById(containerId);
+
+                const lastRow = values[values.length - 1];
+
+                container.innerHTML = '';
+
+                const paragraph = document.createElement('p');
+
+                const isArabicText = isArabic(lastRow[0]);
+
+                if (isArabicText) {
+                    paragraph.classList.add('rtl');
+                } else {
+                    if (lastRow[0].match(/[a-zA-Z]/)) {
+                        paragraph.classList.add('indonesia');
+                    }
+                }
+
+                // Ganti karakter baris baru (\n) menjadi tag HTML <br>
+                const newText = document.createElement('div');
+                newText.innerHTML = lastRow[0].replace(/\n/g, '<br>');
+                paragraph.appendChild(newText);
+
+                container.appendChild(paragraph);
+                
+                scrollToBottom(container);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+    }
+
+    setInterval(() => {
+        fetchDataAndDisplay('data-container', 'A:A');
+    }, 3000);
+
+    fetchDataAndDisplay('data-container', 'A:A');
+</script>
+
+</body>
+</html>
