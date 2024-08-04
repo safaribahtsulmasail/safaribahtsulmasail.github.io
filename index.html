@@ -3,101 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BAHTSUL MASAIL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
+    <title>Safari Bahtsul Masail</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: rgb(0, 0, 0);
-            color: white;
+        body, html {
+            height: 100%;
             margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
             display: flex;
             align-items: center;
-            justify-content: center;
-            height: 100vh; /* Atur tinggi body agar mengisi seluruh tinggi viewport */
+            justify-content: space-between;
+            background-color: #00A85A;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
         }
-
-        .konten {
+        .header.show {
+            transform: translateY(0);
+        }
+        .header img {
+            max-height: 40px;
+        }
+        .menu {
+            position: relative;
+            z-index: 1000;
+        }
+        .hamburger {
+            display: inline-block;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #f0f0f0;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+        .menu-items {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            width: 150px;
+            transition: visibility 0s, opacity 0.5s ease;
+        }
+        .menu-items.show {
+            visibility: visible;
+            opacity: 1;
+        }
+        .menu-items button {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            background: none;
+            border: none;
             text-align: left;
-            overflow-y: auto;
-            align-self: center; /* Menempatkan .konten di tengah vertikal */
+            cursor: pointer;
+            color: #333;
+            border-bottom: 1px solid #ddd;
         }
-
-        .rtl {
-            direction: rtl;
-            text-align: justify;
-            font-size: 20PX;
+        .menu-items button:hover {
+            background-color: #f0f0f0;
         }
-
-        .indonesia {
-            color: white;
-            text-align: justify;
-            font-size: 20px;
+        .change .bar1 {
+            transform: translateY(8px) rotate(-45deg);
+        }
+        .change .bar2 {
+            opacity: 0;
+        }
+        .change .bar3 {
+            transform: translateY(-8px) rotate(45deg);
+        }
+        .content {
+            padding-top: 60px;
+        }
+        .LOGO {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="konten" id="data-container"></div>
-   <script>
-    function isArabic(text) {
-        return /[\u0600-\u06FF]/.test(text);
-    }
+    <div class="header" id="header">
+        <img class="IKON" src="GAMBAR/IKON.png" alt="Ikon">
+        <img class="JUDUL" src="GAMBAR/HEADER.png" alt="Judul">
+        <div class="menu">
+            <div class="hamburger" onclick="toggleMenu(this)">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div class="menu-items" id="menuItems">
+                <button class="nav-button" onclick="showPage('halaman1')">HOME</button>
+                <button class="nav-button" onclick="location.reload()">REFRESH</button>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <img class="LOGO" src="GAMBAR/LOGO.png" alt="Logo">
+        <!-- More content here -->
+       
+    </div>
+    <script>
+        function toggleMenu(x) {
+            x.classList.toggle("change");
+            var menuItems = document.getElementById('menuItems');
+            menuItems.classList.toggle('show');
+        }
 
-    function scrollToBottom(element) {
-        element.scrollTop = element.scrollHeight;
-    }
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            document.getElementById('menuItems').classList.remove('show');
+            document.querySelector('.hamburger').classList.remove('change');
+        }
 
-    function fetchDataAndDisplay(containerId, columnAndRows) {
-        const apiKey = 'AIzaSyAlT57jkJ9WR6bmEXlBXcR1-3kKzhk8FHw';
-        const spreadsheetId = '1ixedGP5FLnWpKjsyuCWs3H8ewGOHh3tDR-0mer_UpF4';
-        const sheetName = 'Sheet1';
-
-        const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}!${columnAndRows}?key=${apiKey}`;
-
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                const values = data.values;
-                const container = document.getElementById(containerId);
-
-                const lastRow = values[values.length - 1];
-
-                container.innerHTML = '';
-
-                const paragraph = document.createElement('p');
-
-                const isArabicText = isArabic(lastRow[0]);
-
-                if (isArabicText) {
-                    paragraph.classList.add('rtl');
-                } else {
-                    if (lastRow[0].match(/[a-zA-Z]/)) {
-                        paragraph.classList.add('indonesia');
-                    }
-                }
-
-                // Ganti karakter baris baru (\n) menjadi tag HTML <br>
-                const newText = document.createElement('div');
-                newText.innerHTML = lastRow[0].replace(/\n/g, '<br>');
-                paragraph.appendChild(newText);
-
-                container.appendChild(paragraph);
-                
-                scrollToBottom(container);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }
-
-    setInterval(() => {
-        fetchDataAndDisplay('data-container', 'A:A');
-    }, 3000);
-
-    fetchDataAndDisplay('data-container', 'A:A');
-</script>
-
+        window.onscroll = function() {
+            var header = document.getElementById('header');
+            if (document.documentElement.scrollTop > 50) {
+                header.classList.add('show');
+            } else {
+                header.classList.remove('show');
+            }
+        };
+    </script>
 </body>
 </html>
