@@ -6,12 +6,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Asap:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&display=swap" rel="stylesheet">    
     <title>Safari Bahtsul Masail</title>
     <style>
         body, html {
             height: 100%;
-            margin: 0;
             font-family: Arial, sans-serif;
+            margin: 0%;
         }
         .header {
             display: flex;
@@ -35,6 +49,7 @@
         .menu {
             position: relative;
             z-index: 1000;
+            margin-right: 20px;
         }
         .hamburger {
             display: inline-block;
@@ -87,14 +102,374 @@
             transform: translateY(-8px) rotate(45deg);
         }
         .content {
-            padding-top: 60px;
+        display: flex; /* Menggunakan Flexbox untuk penataan */
+        justify-content: center; /* Menyelaraskan secara horizontal */
+        align-items: center; /* Menyelaraskan secara vertikal */
         }
         .LOGO {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
+            height: 150px; /* Ukuran tinggi logo */
+            margin-top: 50px;
+            margin-bottom: 50px;
         }
-    </style>
+        .isi{
+            margin: 7px;
+        }
+
+        
+@font-face {
+  font-family: 'CustomArabicFont';
+  src: url('arabic-font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal; }
+
+.rtl, .indonesia {
+  text-align: justify;
+  font-size: 13px;
+}
+.rtl {
+  direction: rtl;
+  font-family: 'CustomArabicFont', 'Traditional Arabic', Tahoma, sans-serif;
+}
+#dataTable1,
+#dataTable2,
+#dataTable0 {
+  width: 100%;
+  max-width: 100%;
+}
+#dataTable1 th,
+#dataTable1 td,
+#dataTable2 th,
+#dataTable2 td,
+#dataTable0 th,
+#dataTable0 td {
+  display: block;
+  padding: 2px;
+  font-size: 16px;
+  margin-top: 0px;
+  margin-bottom: 3px;
+  color: black;
+}
+.table-image {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efek bayangan */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transisi halus */
+  width: 100%; /* Lebar gambar disesuaikan dengan kolom */
+  height: 100%; /* Tinggi otomatis agar proporsional */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#dataTable1 th:nth-child(1),
+#dataTable1 td:nth-child(1),
+#dataTable0 th:nth-child(1),
+#dataTable0 td:nth-child(1) {
+  color:#ffffff; /* Membuat teks tidak terlihat */
+  text-shadow: none;  /* Menghapus bayangan teks jika ada */
+  width: 70px; /* 2 units lebar */
+  height: 70px; /* 3 units tinggi */
+  margin-top: 0px;
+  font-size: 17px;
+
+}
+#dataTable2 th:nth-child(1),
+#dataTable2 td:nth-child(1){
+  color:#ffffff; /* Membuat teks tidak terlihat */
+  text-shadow: none;  /* Menghapus bayangan teks jika ada */
+  width: 128px; /* 2 units lebar */
+  height: 72px; /* 3 units tinggi */
+  margin-top: 0px;
+  font-size: 17px;
+}
+#dataTable1 th:nth-child(2),
+#dataTable1 td:nth-child(2),
+#dataTable0 th:nth-child(2),
+#dataTable0 td:nth-child(2) {
+    margin-top: -77px;
+    margin-left: 80px;
+    font-size: 12px; /* Ukuran font */
+    width: auto; /* Lebar otomatis */
+    height: auto; /* Tinggi otomatis */
+    color: #ffffff; /* Warna teks */
+    padding: 2px; /* Padding untuk tampilan yang lebih baik */
+    background-color:  #00A85A;
+    border-radius: 2px; /* Sudut melengkung */
+    width:fit-content; /* 2 units lebar */  
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+#dataTable2 th:nth-child(2),
+#dataTable2 td:nth-child(2) {
+    margin-top: -77px;
+    margin-left: 140px;
+    font-size: 12px; /* Ukuran font */
+    width: auto; 
+    height: auto; /* Tinggi otomatis */
+    color: #ffffff; /* Warna teks */
+    padding: 2px; /* Padding untuk tampilan yang lebih baik */
+    background-color:  #00A85A;
+    border-radius: 2px; /* Sudut melengkung */
+    width:fit-content; /* 2 units lebar */  
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+#dataTable1 th:nth-child(3),
+#dataTable1 td:nth-child(3),
+#dataTable0 th:nth-child(3),
+#dataTable0 td:nth-child(3) {
+    margin-top: -5px;
+    margin-left: 78px;
+    font-size: 10px; /* Ukuran font */
+    width: auto; /* Lebar otomatis */
+    height: auto; /* Tinggi otomatis */
+    color: #000000; /* Warna teks */
+    font-family: "Asap", sans-serif;
+
+}
+#dataTable2 th:nth-child(3),
+#dataTable2 td:nth-child(3) {
+    margin-top: -5px;
+    margin-left: 140px;
+    font-size: 10px; /* Ukuran font */
+    width: auto; /* Lebar otomatis */
+    height: auto; /* Tinggi otomatis */
+    color: #000000; /* Warna teks */
+    font-family: "Asap", sans-serif;
+}
+
+#dataTable1 th:nth-child(4),
+#dataTable1 td:nth-child(4),
+#dataTable0 th:nth-child(4),
+#dataTable0 td:nth-child(4) {
+    margin-left: 78px;
+    margin-top: -5px;
+    font-size: 10px; /* Ukuran font */
+    color:#919191; 
+    font-family: "Asap", sans-serif;
+
+}
+#dataTable2 th:nth-child(4),
+#dataTable2 td:nth-child(4) {
+    margin-left: 140px;
+    margin-top: -5px;
+    font-size: 10px; /* Ukuran font */
+    color:#919191; 
+    font-family: "Asap", sans-serif;
+
+}
+
+#dataTable1 th:nth-child(5),
+#dataTable1 td:nth-child(5),
+#dataTable2 th:nth-child(5),
+#dataTable2 td:nth-child(5),
+#dataTable0 th:nth-child(5),
+#dataTable0 td:nth-child(5) {
+  display: none;
+    
+}
+.hidden-text div {
+  display: none;
+}
+
+#dataTable1 tr:first-child td,
+#dataTable2 tr:first-child td,
+#dataTable0 tr:first-child td {
+  border-radius: 0px;
+  background-color: black;
+  color: #ffffff;
+}
+.TABEL {
+  margin: 0px;
+  border-collapse: collapse;
+}
+#dataTable1 td.rtl,
+#dataTable2 td.rtl,
+#dataTable0 td.rtl {
+  direction: rtl;
+}
+#dataTable1 td.indonesia,
+#dataTable2 td.indonesia,
+#dataTable0 td.indonesia {
+  direction: ltr;
+}
+.underline-text {
+color:#ff1a1a;
+}
+
+.center-text {
+    display:block;
+    margin-bottom: -20px;
+    text-align: center;
+    }
+.quote-text {
+    display: block;
+    text-align: left;
+    margin-bottom: -20px;
+    font-family: "Lato", sans-serif;
+}
+.bold {
+  font-weight: bold;
+}
+.table-row {
+  background-color: rgb(255, 255, 255);
+  padding: 5px; 
+  height: auto;
+  width: auto;
+  min-height: 80px;
+  margin-bottom: 2px; 
+  border-radius: 3px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#dataTable1 tbody tr:first-child,
+#dataTable2 tbody tr:first-child,
+#dataTable0 tbody tr:first-child {
+  display: none;
+}
+.konten {
+    width: auto;
+    font-weight: bold;
+    display: flex;
+    position: relative;
+    margin-top: 45px;
+    margin-bottom: 2px;
+    color: #00A85A;
+  position: relative;
+  margin-bottom: 2px;
+  background-color: NONE;
+border-left: 5px solid #00A85A;
+    padding: 5px 8px;
+    border-radius: 3px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-size: 20px;
+    z-index: 1000;
+    justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
+    align-items: center; /* Untuk memastikan konten dan ikon berada di tengah vertikal */
+    text-decoration: none;
+}
+.konten .fa-chevron-right {
+  font-size: 12px;
+}
+.konten span {
+  flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
+}
+.konten .fas {
+  margin-left: 10px; /* Jarak antara teks dan ikon */
+}
+.konten1 {
+  width: auto;
+  font-weight: bold;
+  display: flex;
+  color: #00A85A;
+  position: relative;
+  margin-bottom: 2px;
+  background-color: NONE;
+border-left: 5px solid #00A85A;
+  padding: 5px 8px;
+  border-radius: 3px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-size: 20px;
+  z-index: 1000;
+  justify-content: space-between; /* Untuk menempatkan konten di ujung kanan */
+  align-items: center;
+  text-decoration: none;
+  margin-top: 10px;
+}
+.konten1 .fa-chevron-right {
+  font-size: 12px;
+}
+.konten1 span {
+  flex: 1; /* Menggunakan flex untuk mengisi sisa ruang di sebelah kiri */
+}
+.konten1 .fas {
+  margin-left: 10px; /* Jarak antara teks dan ikon */
+}
+/* Font Awesome Icon Styles */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+.footer {
+    background-color: #00A85A;
+    color: #ffffff;
+    padding: 40px 0;
+    text-align: center;
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-info h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #ffffff;
+    margin: 0 15px;
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #cccccc;
+    transform: scale(1.2);
+}
+
+/* Additional Styles for a Better Visual */
+.footer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+</style>
 </head>
 <body>
     <div class="header" id="header">
@@ -107,30 +482,19 @@
                 <div class="bar3"></div>
             </div>
             <div class="menu-items" id="menuItems">
-                <button class="nav-button" onclick="showPage('halaman1')">HOME</button>
+                <button class="nav-button" onclick="showPage('index.html')">HOME</button>
+                <button class="nav-button" onclick="showPage('about.html')">HASIL KEPUTUSAN</button>
+                <button class="nav-button" onclick="showPage('services.html')">LIVE STREAMING</button>
+                <button class="nav-button" onclick="showPage('contact.html')">MAKTABAH</button>
+                <button class="nav-button" onclick="showPage('gallery.html')">ADMIN</button>
                 <button class="nav-button" onclick="location.reload()">REFRESH</button>
+
             </div>
+            
         </div>
     </div>
     <div class="content">
         <img class="LOGO" src="GAMBAR/LOGO.png" alt="Logo">
-        <!-- More content here -->
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae suscipit mollitia veniam quos ex magnam laudantium iste nemo ut cum a voluptatum, nulla atque, aut, nisi veritatis aliquam voluptates reprehenderit.</P>
-
-    
     </div>
     <script>
         function toggleMenu(x) {
@@ -157,5 +521,169 @@
             }
         };
     </script>
+<div class="isi">
+    <a href="DATA/KONTEN1.html" class="konten">
+      <span>Hasil Keputusan</span>
+      <i class="fas fa-chevron-right"></i>
+    </a>   
+    <div id="image-container"></div>
+        <!-- Second table -->
+        <div class="chat-container">
+          <div class="chat-body" id="chatBody0">
+            <div class="TABEL">
+              <table id="dataTable0">
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <a href="DATA/KONTEN3.html" class="konten1">
+          <span>Live Straming</span>
+          <i class="fas fa-chevron-right"></i>
+        </a> 
+        <!-- Second table -->
+        <div class="chat-container">
+          <div class="chat-body" id="chatBody2">
+            <div class="TABEL">
+              <table id="dataTable2">
+                <tbody>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <script>
+          function isArabic(text) {
+            const arabicRegex = /[\u0600-\u06FF]/;
+            return arabicRegex.test(text);
+          }
+        
+          const API_KEY = 'AIzaSyA8x0yI8zCPUgZktmGNvQVTzhm1fdZ0K74';
+    
+          const SPREADSHEET_ID_0 = '1IQdlwxHQA3sIbPKDBGBDwCpEuU_8UklpytoDwxeyVRQ';
+          const RANGE_0 = 'RUMUSAN';
+        
+          const SPREADSHEET_ID_2 = '1IQdlwxHQA3sIbPKDBGBDwCpEuU_8UklpytoDwxeyVRQ';
+          const RANGE_2 = 'LIVE';
+        
+          function processText(text) {
+            let processedText = text.replace(/\*(.*?)\*/g, '<span class="underline-text">$1</span>');
+            processedText = processedText.replace(/\#(.*?)\#/g, '<span class="center-text">$1</span>');
+            processedText = processedText.replace(/\^(.*?)\^/g, '<span class="quote-text">$1</span>');
+            processedText = processedText.replace(/\$(.*?)\$/g, '<span class="bold">$1</span>');
+        
+            return processedText;
+          }
+        
+          function processDataAndPopulateTable(data, tableId) {
+            const values = data.values;
+            const tableBody = document.querySelector(`#${tableId} tbody`);
+            tableBody.innerHTML = ''; // Clear the table content before populating it
+            const imageContainer = document.getElementById('image-container');
+            imageContainer.innerHTML = ''; // Clear the image container content before populating it
+        
+            values.forEach(row => {
+              const newRow = document.createElement('tr'); // Create a new row element for each row
+              tableBody.appendChild(newRow); // Append the row to the table body
+        
+              // Create a new div for each row
+              const newRowDiv = document.createElement('div');
+              newRowDiv.classList.add('table-row'); // Add class for styling
+              newRowDiv.id = 'halaman'; // Add ID
+        
+              // Get URL from column E (index 4)
+              const url = row[4];
+        
+              newRowDiv.addEventListener('click', function() {
+      const cleanUrl = url.replace(/^https?:\/\//, '');
+      const finalUrl = `https://${cleanUrl}`;
+      window.location.href = finalUrl;
+    });
+              newRow.appendChild(newRowDiv); // Insert the row div into the table
+    
+              row.forEach((cellValue, index) => {
+                const newCell = document.createElement('td');
+                const isArabicText = isArabic(cellValue);
+        
+                if (cellValue.trim() === '-') {
+                  newCell.style.display = 'none';
+                } else {
+                  if (isArabicText) {
+                    newCell.classList.add('rtl');
+                  } else {
+                    newCell.classList.add('indonesia');
+                  }
+        
+                  const newText = document.createElement('div');
+                  newText.innerHTML = processText(cellValue).replace(/\n/g, '<br>');
+                  newCell.appendChild(newText);
+        
+                  // If cell is column A (index 0), process image URL and hide text
+                  if (index === 0 && cellValue.trim() !== '-') {
+                    const imgTag = document.createElement('img');
+                    const imageId = extractIdFromUrl(cellValue);
+                    if (imageId) {
+                      imgTag.src = `https://drive.google.com/thumbnail?id=${imageId}`;
+                      imgTag.alt = 'Page Image';
+                      imgTag.classList.add('table-image'); // Add class for styling image
+                      newCell.appendChild(imgTag);
+                    } else {
+                      console.log('ID not found in URL.');
+                    }
+                    newCell.classList.add('hidden-text'); // Add class to hide text
+                  }
+                }
+                newRowDiv.appendChild(newCell); // Insert cell into row div
+              });
+            });
+          }
+        
+          function getData(spreadsheetId, range, tableId) {
+            fetch(`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${API_KEY}`)
+              .then(response => response.json())
+              .then(data => processDataAndPopulateTable(data, tableId))
+              .catch(error => console.error('Error fetching data:', error));
+          }
+        
+          function extractIdFromUrl(url) {
+            const regex = /\/d\/(.*?)\//;
+            const match = url.match(regex);
+            if (match && match[1]) {
+              return match[1];
+            }
+            return null;
+          }
+          getData(SPREADSHEET_ID_0, RANGE_0, 'dataTable0');
+          getData(SPREADSHEET_ID_1, RANGE_1, 'dataTable1');
+          getData(SPREADSHEET_ID_2, RANGE_2, 'dataTable2');
+        </script>
+</div>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="contact-info">
+            <h1>Kontak Kami</h1>
+            <p><i class="fas fa-map-marker-alt"></i> Basecamp: PPMU Grobogan</p>
+            <p><i class="fas fa-envelope"></i> safaribahtsulmasail@gmail.com</p>
+            <p><i class="fas fa-phone-alt"></i> +62 123 4567 890</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>
